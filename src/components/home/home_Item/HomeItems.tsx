@@ -10,8 +10,8 @@ async function fetchMovies({ link  }: { link: string }) {
     const data = await response.json();
     return data.results || [];
   } catch (error) {
-    console.error("Error fetching movies:", error);
-    return [];
+    throw new Error("Failed to fetch comments data");
+
   }
 }
 

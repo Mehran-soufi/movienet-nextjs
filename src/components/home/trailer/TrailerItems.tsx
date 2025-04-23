@@ -30,8 +30,8 @@ async function fetchTrailerKey(movieId: number) {
     const trailer = data.results.find((video: any) => video.type === "Trailer");
     return trailer?.key || ""; 
   } catch (error) {
-    console.error("Error fetching trailer key:", error);
-    return ""; 
+    throw new Error("Failed to fetch comments data");
+
   }
 }
 

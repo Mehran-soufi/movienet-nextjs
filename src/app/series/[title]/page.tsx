@@ -1,7 +1,6 @@
 import Result from "@/components/result/Result";
 import { tvGenresList } from "@/utils/genres";
 import { heroMovie } from "@/components/home/home_Item/HomeItemResItems";
-import NotFound from "@/app/not-found";
 
 const apiKey = process.env.NEXT_PUBLIC_APP_API_KEY;
 
@@ -42,13 +41,13 @@ export default async function MoviePage({
 
   const apiUrl = getApiLinkByTitle(title, page);
   if (!apiUrl) {
-    return NotFound();
+    throw new Error("Internal Server Error");
   }
 
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
-      return NotFound();
+      throw new Error("Internal Server Error");
     }
 
     const data = await response.json();
@@ -70,6 +69,6 @@ export default async function MoviePage({
       </section>
     );
   } catch {
-    return NotFound();
+    throw new Error("Internal Server Error");
   }
 }

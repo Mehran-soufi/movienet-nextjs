@@ -48,7 +48,7 @@ export default async function MoviePage({
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
-      return notFound();
+      throw new Error("Internal Server Error");
     }
 
     const data = await response.json();
@@ -70,6 +70,6 @@ export default async function MoviePage({
     </section>
     );
   } catch (error) {
-    return notFound();
+    throw new Error("Internal Server Error");
   }
 }

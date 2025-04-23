@@ -6,7 +6,7 @@ import HeaderMenu from "./HeaderMenu";
 
 function Header() {
   const [scroll, setScroll] = useState<boolean>(false);
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState<boolean>(false);
 
   useEffect(() => {
     setIsClient(true);

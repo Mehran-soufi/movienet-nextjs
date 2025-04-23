@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import SearchComponent from "../search/SearchComponent";
 
 function HeaderBtn() {
-  const [searchShow, setSearchShow] = useState<Boolean>(false);
+  const [searchShow, setSearchShow] = useState<boolean>(false);
   return (
     <>
       <div className="flex justify-end items-center gap-2">

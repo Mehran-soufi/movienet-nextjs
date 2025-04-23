@@ -68,7 +68,7 @@ async function fetchMovieData(
     return movieData;
   } catch (error) {
     console.error("Error fetching movie data:", error);
-    throw error;
+    throw new Error("Internal Server Error");
   }
 }
 
