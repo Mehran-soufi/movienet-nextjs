@@ -1,5 +1,4 @@
 import Result from "@/components/result/Result";
-import { notFound } from "next/navigation";
 import { movieGenresList } from "@/utils/genres";
 import { heroMovie } from "@/components/home/home_Item/HomeItemResItems";
 
@@ -42,7 +41,7 @@ export default async function MoviePage({
 
   const apiUrl = getApiLinkByTitle(title, page);
   if (!apiUrl) {
-    return notFound();
+    throw new Error("Internal Server Error");
   }
 
   try {
@@ -57,19 +56,20 @@ export default async function MoviePage({
 
     return (
       <section className="w-full min-h-screen flex justify-center items-center">
-      <div className="w-11/12 min-h-screen" style={{ marginTop: "4rem" }}>
-        <div className="w-full h-full" style={{ padding: "1rem 0" }}>
-        <Result
-          result={results}
-          title={title}
-          totalPages={totalPages}
-          currentPage={page}
-        />
+        <div className="w-11/12 min-h-screen" style={{ marginTop: "4rem" }}>
+          <div className="w-full h-full" style={{ padding: "1rem 0" }}>
+            <Result
+              result={results}
+              title={title}
+              totalPages={totalPages}
+              currentPage={page}
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     );
   } catch (error) {
+    console.log(error);
     throw new Error("Internal Server Error");
   }
 }
