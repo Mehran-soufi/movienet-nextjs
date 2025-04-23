@@ -50,7 +50,7 @@ function OneMoveiComments({ id, type }: { id: string; type: string }) {
         setError(false);
         const data = await fetchComment({ params: { id, type } });
         setComments(data);
-      } catch (e) {
+      } catch {
         setError(true);
       } finally {
         setLoading(false);

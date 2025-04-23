@@ -1,8 +1,7 @@
 import Result from "@/components/result/Result";
-import { notFound } from "next/navigation";
 import { tvGenresList } from "@/utils/genres";
 import { heroMovie } from "@/components/home/home_Item/HomeItemResItems";
-
+import NotFound from "@/app/not-found";
 
 const apiKey = process.env.NEXT_PUBLIC_APP_API_KEY;
 
@@ -38,18 +37,18 @@ export default async function MoviePage({
   params: { title: string };
   searchParams: { page?: string };
 }) {
- const title = decodeURIComponent(params.title);
+  const title = decodeURIComponent(params.title);
   const page = Number(searchParams.page) || 1;
 
   const apiUrl = getApiLinkByTitle(title, page);
   if (!apiUrl) {
-    return notFound();
+    return NotFound();
   }
 
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
-      return notFound();
+      return NotFound();
     }
 
     const data = await response.json();
@@ -60,17 +59,17 @@ export default async function MoviePage({
       <section className="w-full min-h-screen flex justify-center items-center">
         <div className="w-11/12 min-h-screen" style={{ marginTop: "4rem" }}>
           <div className="w-full h-full" style={{ padding: "1rem 0" }}>
-          <Result
-            result={results}
-            title={title}
-            totalPages={totalPages}
-            currentPage={page}
-          />
+            <Result
+              result={results}
+              title={title}
+              totalPages={totalPages}
+              currentPage={page}
+            />
           </div>
         </div>
       </section>
     );
-  } catch (error) {
-    return notFound();
+  } catch {
+    return NotFound();
   }
 }

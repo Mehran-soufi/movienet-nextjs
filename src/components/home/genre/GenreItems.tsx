@@ -49,12 +49,12 @@ function GenreItems({ title, genresList, type }: IType) {
             }}
             className="mySwiper w-full h-full"
           >
-            {genresList.map((item: Genre) => (
+            {genresList.map((item,index) => (
               <SwiperSlide>
                 <Link
                   target="_blank"
                   href={`/${type}/${item.name}`}
-                  key={item.id}
+                  key={index}
                   className="w-full h-full cursor-pointer relative bg-gray-900 flex justify-end items-center rounded-xl transition-all duration-300 ease-linear hover:scale-95 shadow-inner shadow-gray-700"
                 >
                   <img

@@ -18,8 +18,7 @@ export async function fetchOneActorCast({ actorId }: { actorId: number }) {
 
     const data = await response.json();
     return data.cast || [];
-  } catch (error) {
-    console.error("Network error:", error);
+  } catch {
     return [];
   }
 }
@@ -36,7 +35,7 @@ function OneActorCast({ actorId }: { actorId: number }) {
         const data = await fetchOneActorCast({ actorId });
         setActorCast(data);
         setLoading(false);
-      } catch (error) {
+      } catch {
         setError(true);
         setLoading(false);
       }

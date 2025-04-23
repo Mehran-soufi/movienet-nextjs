@@ -1,6 +1,6 @@
 import Result from "@/components/result/Result";
-import { notFound } from "next/navigation";
 import { heroMovie } from "@/components/home/home_Item/HomeItemResItems";
+import NotFound from "@/app/not-found";
 
 export interface HeroPerson {
   id: number;
@@ -37,18 +37,16 @@ export default async function MoviePage({
 
   const apiUrl = getApiLinkByTitle(title, page);
   if (!apiUrl) {
-    return notFound();
+    return NotFound();
   }
 
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
-      return notFound();
+      return NotFound();
     }
 
     const data = await response.json();
-    console.log("API response data:", data);
-
 
     const results: heroMovie[] = data.results;
     const totalPages: number = data.total_pages;
@@ -67,7 +65,7 @@ export default async function MoviePage({
         </div>
       </section>
     );
-  } catch (error) {
-    return notFound();
+  } catch {
+    return NotFound();
   }
 }

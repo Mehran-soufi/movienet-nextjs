@@ -22,13 +22,13 @@ async function fetchPersonData(id: string): Promise<OnePersonType | null> {
     );
 
     if (!response.ok) {
-      return null; 
+      throw new Error("Data could not be fetched");
     }
 
     const personData = await response.json();
     return personData;
-  } catch (error) {
-    return null; 
+  } catch {
+    throw new Error("Data could not be fetched");
   }
 }
 
@@ -39,7 +39,6 @@ export default async function PersonPage({
 }) {
   const { id } = params;
   const PersonData = await fetchPersonData(id);
-console.log(PersonData);
 
   if (!PersonData) {
     throw new Error("Data could not be fetched");

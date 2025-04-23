@@ -13,6 +13,7 @@ import { movieGenresList } from "@/utils/genres";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -25,10 +26,10 @@ import { HomeHeroType } from "../Home";
 import Link from "next/link";
 
 function HeroRes({ movies }: { movies: HomeHeroType[] }) {
-  const swiperRef = useRef<any>(null);
-  const [progress, setProgress] = useState(0);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [imageSize, setImageSize] = useState("original");
+  const swiperRef = useRef<{ swiper: SwiperType } | null>(null);
+  const [progress, setProgress] = useState<number>(0);
+  const [activeSlide, setActiveSlide] = useState<number>(0);
+  const [imageSize, setImageSize] = useState<string>("original");
 
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -174,7 +175,9 @@ function HeroRes({ movies }: { movies: HomeHeroType[] }) {
                       <li>{movie.release_date?.split("-")[0]}</li>
                     </ul>
                     <Link
-                       href={`/${movie.media_type}/${encodeURIComponent(movie.title)}/${movie.id}`}
+                      href={`/${movie.media_type}/${encodeURIComponent(
+                        movie.title
+                      )}/${movie.id}`}
                       target="_blank"
                     >
                       <Button

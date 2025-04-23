@@ -1,30 +1,36 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { OneMovieData } from "@/app/[type]/[title]/[id]/page";
 
-async function fetchMovieCredits(movieId: string, type: string): Promise<any> {
+type CrewMember = {
+  id: number;
+  name: string;
+  job: string;
+};
+
+type CreditsData = {
+  crew: CrewMember[];
+};
+
+async function fetchMovieCredits(
+  movieId: string,
+  type: string
+): Promise<CreditsData> {
   const apiKey = process.env.NEXT_PUBLIC_APP_API_KEY;
 
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/${type}/${movieId}/credits?api_key=${apiKey}`
-    );
+  const response = await fetch(
+    `https://api.themoviedb.org/3/${type}/${movieId}/credits?api_key=${apiKey}`
+  );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch credits");
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching credits:", error);
-    return null;
+  if (!response.ok) {
+    throw new Error("Failed to fetch credits");
   }
+
+  const data = await response.json();
+  return data as CreditsData;
 }
 
-// استخراج کارگردان و تهیه‌کننده از لیست عوامل
-function getDirectorAndProducer(crew: any[]) {
+function getDirectorAndProducer(crew: CrewMember[]) {
   const director = crew.find((person) => person.job === "Director");
   const producer = crew.find((person) => person.job === "Producer");
 
@@ -41,17 +47,25 @@ function OneMovieDescribtion({
   movieData: OneMovieData;
   type: string;
 }) {
-  const [credits, setCredits] = useState({ director: "", producer: "" });
+  const [credits, setCredits] = useState<{
+    director: string;
+    producer: string;
+  }>({
+    director: "",
+    producer: "",
+  });
 
   useEffect(() => {
     const fetchCredits = async () => {
-      const creditsData = await fetchMovieCredits(
-        movieData.id.toString(),
-        type
-      );
-      if (creditsData) {
+      try {
+        const creditsData = await fetchMovieCredits(
+          movieData.id.toString(),
+          type
+        );
         const { director, producer } = getDirectorAndProducer(creditsData.crew);
         setCredits({ director, producer });
+      } catch (error) {
+        console.error("Error fetching credits:", error);
       }
     };
 
@@ -60,7 +74,6 @@ function OneMovieDescribtion({
 
   return (
     <div className="w-full flex flex-col items-start justify-center">
-      {/* بخش Overview */}
       <div className="w-full">
         <h2 className="font-bold uppercase text-lg text-rose-400">
           {movieData.title} Overview
@@ -70,7 +83,6 @@ function OneMovieDescribtion({
         </p>
       </div>
 
-      {/* بخش About */}
       <div className="w-full">
         <h2 className="font-bold uppercase text-lg text-rose-400">
           About {movieData.title}
@@ -78,19 +90,16 @@ function OneMovieDescribtion({
         <p className="text-justify w-full" style={{ padding: "1rem 0" }}>
           {movieData.title || movieData.name} is a{" "}
           {movieData.genres.map((genre) => genre.name).join(" - ")} film
-          directed by {credits.director || "Unknown"} and produced by{" "}
-          {credits.producer || "Unknown"}, which was released on{" "}
-          {movieData.release_date}. The film has so far received a score of{" "}
-          {movieData.vote_average.toFixed(1)} out of a total of{" "}
-          {movieData.vote_count} reviews.{" "}
-          {movieData.revenue ||
-            (movieData.budget &&
-              `The total sales of the film are{" "}
-${movieData.revenue}$ and its production budget is ${movieData.budget}$.`)}
+          directed by {credits.director} and produced by {credits.producer},
+          which was released on {movieData.release_date}. The film has so far
+          received a score of {movieData.vote_average.toFixed(1)} out of a total
+          of {movieData.vote_count} reviews.{" "}
+          {movieData.revenue || movieData.budget
+            ? `The total sales of the film are ${movieData.revenue}$ and its production budget is ${movieData.budget}$.`
+            : ""}
         </p>
       </div>
 
-      {/* بخش Production Companies */}
       <div className="w-full">
         <h2 className="font-bold uppercase text-lg text-rose-400">
           Production Companies
