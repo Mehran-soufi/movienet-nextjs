@@ -26,7 +26,7 @@ export type OneMovieData = {
   name: string;
   overview: string;
   release_date: string;
-  first_air_date:string
+  first_air_date: string;
   poster_path: string;
   backdrop_path: string;
   origin_country: [];
@@ -44,9 +44,9 @@ export type OneMovieData = {
   popularity: number;
   status: string;
   adult: boolean;
-  last_episode_to_air:{
-    runtime:number
-  }
+  last_episode_to_air: {
+    runtime: number;
+  };
 };
 
 async function fetchMovieData(
@@ -72,11 +72,11 @@ async function fetchMovieData(
   }
 }
 
-export default async function MoviePage({
-  params,
-}: {
+interface PageProps {
   params: { id: string; type: string };
-}) {
+}
+
+export default async function MoviePage({ params }: PageProps) {
   const { id, type } = params;
   const movieData = await fetchMovieData(id, type);
 
