@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 // Import required modules
 import { Navigation } from "swiper/modules";
 import { CirclePlay } from "lucide-react";
+import Link from "next/link";
 
 const apiKey = process.env.NEXT_PUBLIC_APP_API_KEY;
 
@@ -18,7 +19,14 @@ function truncateTitle(title: string, maxLength: number): string {
   return title.length > maxLength ? title.slice(0, maxLength) + "..." : title;
 }
 
-async function fetchTrailerKey(movieId: number) {
+// تایپ برای داده‌های ویدیو
+type VideoType = {
+  id: string;
+  type: string;
+  key: string;
+};
+
+async function fetchTrailerKey(movieId: number): Promise<string> {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`
@@ -26,16 +34,17 @@ async function fetchTrailerKey(movieId: number) {
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
-    const data = await response.json();
-    const trailer = data.results.find((video: any) => video.type === "Trailer");
-    return trailer?.key || ""; 
+    const data: { results: VideoType[] } = await response.json();
+    const trailer = data.results.find((video) => video.type === "Trailer");
+    return trailer?.key || "";
   } catch (error) {
-    throw new Error("Failed to fetch comments data");
+    console.log(error);
 
+    throw new Error("Failed to fetch trailer data");
   }
 }
 
-type trailerType = {
+type TrailerType = {
   id: number;
   title: string;
   backdrop_path: string;
@@ -47,7 +56,7 @@ function SkeletonLoader() {
   );
 }
 
-function TrailerItems({ trailerItems }: { trailerItems: trailerType[] }) {
+function TrailerItems({ trailerItems }: { trailerItems: TrailerType[] }) {
   const [trailerKeys, setTrailerKeys] = useState<Record<number, string>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -74,8 +83,7 @@ function TrailerItems({ trailerItems }: { trailerItems: trailerType[] }) {
     loadTrailerKeys();
   }, [trailerItems]);
 
-  if (loading || error) {
-   
+  if (loading) {
     return (
       <div className="w-full h-11/12">
         <Swiper
@@ -102,6 +110,14 @@ function TrailerItems({ trailerItems }: { trailerItems: trailerType[] }) {
     );
   }
 
+  if (error) {
+    return (
+      <div className="w-full h-11/12 text-center text-red-500">
+        There was an error loading the trailers.
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-11/12">
       <Swiper
@@ -120,7 +136,7 @@ function TrailerItems({ trailerItems }: { trailerItems: trailerType[] }) {
       >
         {trailerItems.map((item) => (
           <SwiperSlide key={item.id}>
-            <a
+            <Link
               target="_blank"
               href={`https://www.youtube.com/watch?v=${trailerKeys[item.id]}`}
               className="no-underline border-none w-full h-full flex-col cursor-pointer group
@@ -148,7 +164,7 @@ function TrailerItems({ trailerItems }: { trailerItems: trailerType[] }) {
                   {truncateTitle(item.title, 20)}
                 </p>
               </div>
-            </a>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

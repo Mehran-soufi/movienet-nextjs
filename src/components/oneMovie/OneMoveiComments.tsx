@@ -33,6 +33,8 @@ async function fetchComment({
     const data = await response.json();
     return data.results || [];
   } catch (error) {
+    console.log(error);
+    
     throw new Error("Failed to fetch comments data");
 
   }

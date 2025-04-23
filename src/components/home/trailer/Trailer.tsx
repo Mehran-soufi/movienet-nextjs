@@ -15,7 +15,8 @@ async function fetchTrailer() {
     return data.results || [];
     
   } catch (error) {
-    throw new Error("Failed to fetch comments data");
+    console.log(error);
+        throw new Error("Failed to fetch comments data");
 
   }
 }

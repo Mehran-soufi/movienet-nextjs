@@ -27,21 +27,6 @@ function truncateTitle(title: string, maxLength: number): string {
   return title.length > maxLength ? title.slice(0, maxLength) + "..." : title;
 }
 
-function getGenreNames(genreIds: number[], isMovie: boolean): string {
-  if (!genreIds || !Array.isArray(genreIds)) {
-    return "Unknown";
-  }
-  const genreList = isMovie ? movieGenresList : tvGenresList;
-  const genreNames = genreIds
-    .map((id) => {
-      const genre = genreList.find((g) => g.id === id);
-      return genre ? genre.name : null;
-    })
-    .filter((name) => name !== null);
-
-  return genreNames.length > 0 ? genreNames.join(", ") : "Unknown";
-}
-
 const btnSearch = [
   { title: "all" },
   { title: "movies" },
@@ -74,7 +59,11 @@ async function fetchSearch(searchInput: string, searchCategory: string) {
   }
 }
 
-function SearchComponent({ setSearchShow }: { setSearchShow: any }) {
+function SearchComponent({
+  setSearchShow,
+}: {
+  setSearchShow: React.Dispatch<React.SetStateAction<`boolean`>>;
+}) {
   const [searchItem, setSearchItem] = useState<string>("all");
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchResult, setSearchResult] = useState<heroMovie[]>([]);

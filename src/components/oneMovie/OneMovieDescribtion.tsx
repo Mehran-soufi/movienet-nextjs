@@ -65,6 +65,8 @@ function OneMovieDescribtion({
         const { director, producer } = getDirectorAndProducer(creditsData.crew);
         setCredits({ director, producer });
       } catch (error) {
+        console.log(error);
+        
         throw new Error("Failed to fetch comments data");
       }
     };

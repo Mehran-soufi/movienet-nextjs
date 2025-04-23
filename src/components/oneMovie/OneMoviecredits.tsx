@@ -47,7 +47,7 @@ async function fetchCastMovie({
     return { cast: data.cast || [], crew: data.crew || [] };
   } catch (error) {
     console.error("Error fetching cast and crew:", error);
-    throw error;
+    throw new Error("Failed to fetch cast and crew data");
   }
 }
 
@@ -64,7 +64,8 @@ function OneMoviecredits({ id, type }: { id: string; type: string }) {
         const { cast, crew } = await fetchCastMovie({ params: { id, type } });
         setCast(cast.slice(0, 15));
         setCrew(crew.slice(0, 15));
-      } catch (e) {
+      } catch (error) {
+        console.error("Error fetching cast and crew:", error);
         setError(true);
       } finally {
         setLoading(false);
