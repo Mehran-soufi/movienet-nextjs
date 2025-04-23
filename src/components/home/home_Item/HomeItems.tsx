@@ -1,7 +1,7 @@
 import React from "react";
 import HomeItemResItems from "./HomeItemResItems";
 
-async function fetchMovies({ link  }: { link: string }) {
+async function fetchMovies({ link }: { link: string }) {
   try {
     const response = await fetch(`${link}`);
     if (!response.ok) {
@@ -11,9 +11,7 @@ async function fetchMovies({ link  }: { link: string }) {
     return data.results || [];
   } catch (error) {
     console.log(error);
-    
     throw new Error("Failed to fetch comments data");
-
   }
 }
 

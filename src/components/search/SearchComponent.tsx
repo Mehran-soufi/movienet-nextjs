@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { movieGenresList, tvGenresList } from "@/utils/genres";
 import Link from "next/link";
 import { SkeletonLoader } from "../home/home_Item/HomeItemResItems";
 
@@ -62,7 +61,7 @@ async function fetchSearch(searchInput: string, searchCategory: string) {
 function SearchComponent({
   setSearchShow,
 }: {
-  setSearchShow: React.Dispatch<React.SetStateAction<`boolean`>>;
+  setSearchShow: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [searchItem, setSearchItem] = useState<string>("all");
   const [searchInput, setSearchInput] = useState<string>("");
