@@ -52,7 +52,7 @@ export type OneMovieData = {
 async function fetchMovieData(
   id: string,
   type: string
-): Promise<OneMovieData | null> {
+) {
   const apiKey = process.env.NEXT_PUBLIC_APP_API_KEY;
 
   try {
