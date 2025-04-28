@@ -72,8 +72,8 @@ async function fetchMovieData(
   }
 }
 
-export default async function MoviePage({ params }: { params: { id: string; type: string } }) {
-  const { id, type } = params;
+export default async function MoviePage({ params }: { params: {  type: string , id: string} }) {
+  const { type,id } = params;
 
   const movieData = await fetchMovieData(id, type);
 
