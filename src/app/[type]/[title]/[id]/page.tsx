@@ -72,14 +72,7 @@ async function fetchMovieData(
   }
 }
 
-type PageProps = {
-  params: {
-    id: string;
-    type: string;
-  };
-};
-
-export default async function MoviePage({ params }: PageProps) {
+export default async function MoviePage({ params }: { params: { id: string; type: string } }) {
   const { id, type } = params;
 
   const movieData = await fetchMovieData(id, type);
@@ -90,3 +83,4 @@ export default async function MoviePage({ params }: PageProps) {
 
   return <OneMovie movieData={movieData} type={type} />;
 }
+
