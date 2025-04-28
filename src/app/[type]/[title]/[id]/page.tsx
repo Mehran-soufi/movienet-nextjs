@@ -50,30 +50,38 @@ export type OneMovieData = {
 };
 
 async function fetchMovieData(
-  movieId: string,
+  id: string,
   type: string
 ): Promise<OneMovieData | null> {
   const apiKey = process.env.NEXT_PUBLIC_APP_API_KEY;
 
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/${type}/${movieId}?api_key=${apiKey}&language=en`
+      `https://api.themoviedb.org/3/${type}/${id}?api_key=${apiKey}&language=en`
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch movie data");
+      console.error("Failed to fetch movie data");
+      return null;
     }
 
-    const movieData = await response.json();
+    const movieData: OneMovieData = await response.json();
     return movieData;
   } catch (error) {
     console.error("Error fetching movie data:", error);
-    throw new Error("Internal Server Error");
+    return null;
   }
 }
 
-export default async function MoviePage({ params }: { params: {  type: string , id: string} }) {
-  const { type,id } = params;
+interface MoviePageProps {
+  params: {
+    type: string;
+    id: string;
+  };
+}
+
+export default async function MoviePage({ params }: MoviePageProps) {
+  const { type, id } = params;
 
   const movieData = await fetchMovieData(id, type);
 
@@ -83,4 +91,3 @@ export default async function MoviePage({ params }: { params: {  type: string , 
 
   return <OneMovie movieData={movieData} type={type} />;
 }
-
