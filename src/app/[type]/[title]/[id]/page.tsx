@@ -17,7 +17,7 @@ export type companie = {
   id: number;
   logo_path: string;
   name: string;
-  origin_country: string;
+  origin_country: string[];
 };
 
 export type OneMovieData = {
@@ -29,7 +29,7 @@ export type OneMovieData = {
   first_air_date: string;
   poster_path: string;
   backdrop_path: string;
-  origin_country: [];
+  origin_country: string[];
   original_language: string;
   budget: number;
   genres: Genre[];
@@ -72,7 +72,14 @@ async function fetchMovieData(
   }
 }
 
-export default async function MoviePage({ params }: { params: { id: string; type: string } }) {
+type Props = {
+  params: {
+    id: string;
+    type: string;
+  };
+};
+
+export default async function MoviePage({ params }: Props) {
   const { id, type } = params;
 
   const movieData = await fetchMovieData(id, type);
@@ -83,4 +90,3 @@ export default async function MoviePage({ params }: { params: { id: string; type
 
   return <OneMovie movieData={movieData} type={type} />;
 }
-
