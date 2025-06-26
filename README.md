@@ -60,8 +60,6 @@ npm run dev
 # باز کردن در مرورگر | Open in browser
 http://localhost:3000
 
-<<<<<<< HEAD
-=======
 
 ## 📷 تصاویر پروژه
 
@@ -131,4 +129,3 @@ http://localhost:3000
 
 ## 👨‍💻 توسعه دهنده | Developer:
 [مهران صوفی |  Mehran soufi](https://resume-soufi.vercel.app/)
-```
