@@ -99,43 +99,9 @@ http://localhost:3000
 >>>>>>> 56ad0ab65295730e6c12193f914a5814d240ab14
 
 
-## 📷 تصاویر پروژه
+## 📷 تصاویر پروژه | Project screenshot :
 
-#### نمای کلی سایت:
-
-![fullScreen](/public/assets/screen_shot/fullScreen_project.png)
-
-#### صفحه اصلی:
-
-![hero](/public/assets/screen_shot/hero.png)
-
-#### جستجو در سایت:
-
-![search](/public/assets/screen_shot/search.png)
-
-#### نمایش ارور:
-
-![error](/public/assets/screen_shot/error.png)
-
-#### نمایش لودینگ:
-
-![loading](/public/assets/screen_shot/loading.png)
-
-#### اطلاعات بازیگران
-
-![loading](/public/assets/screen_shot/actor.png)
-
-#### اطلاعات تک فیلم یا سریال
-
-![loading](/public/assets/screen_shot/movie.png)
-
-## 👨‍💻 توسعه دهنده:
-[مهران صوفی](https://resume-soufi.vercel.app/)
-```
-
-## 📷 تصاویر پروژه | Project screenshot
-
-#### نمای کلی سایت | Site overview:
+#### نمای کلی سایت | Site overview :
 
 ![fullScreen](/public/assets/screen_shot/fullScreen_project.png)
 
@@ -155,14 +121,14 @@ http://localhost:3000
 
 ![loading](/public/assets/screen_shot/loading.png)
 
-#### اطلاعات بازیگران | ACtor detail :
+#### اطلاعات بازیگران | Actor information:
 
 ![loading](/public/assets/screen_shot/actor.png)
 
-#### اطلاعات تک فیلم یا سریال | Single movie or series information :
+#### اطلاعات تک فیلم یا سریال | Single movie or series information:
 
 ![loading](/public/assets/screen_shot/movie.png)
 
-## 👨‍💻 توسعه دهنده | Developer :
-
-[مهران صوفی | Mehran soufi](https://resume-soufi.vercel.app/)
+## 👨‍💻 توسعه دهنده | Developer:
+[مهران صوفی |  Mehran soufi](https://resume-soufi.vercel.app/)
+```
