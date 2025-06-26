@@ -60,6 +60,44 @@ npm run dev
 # باز کردن در مرورگر | Open in browser
 http://localhost:3000
 
+<<<<<<< HEAD
+=======
+
+## 📷 تصاویر پروژه
+
+#### نمای کلی سایت:
+
+![fullScreen](/public/assets/screen_shot/fullScreen_project.png)
+
+#### صفحه اصلی:
+
+![hero](/public/assets/screen_shot/hero.png)
+
+#### جستجو در سایت:
+
+![search](/public/assets/screen_shot/search.png)
+
+#### نمایش ارور:
+
+![error](/public/assets/screen_shot/error.png)
+
+#### نمایش لودینگ:
+
+![loading](/public/assets/screen_shot/loading.png)
+
+#### اطلاعات بازیگران
+
+![loading](/public/assets/screen_shot/actor.png)
+
+#### اطلاعات تک فیلم یا سریال
+
+![loading](/public/assets/screen_shot/movie.png)
+
+## 👨‍💻 توسعه دهنده:
+[مهران صوفی](https://resume-soufi.vercel.app/)
+```
+>>>>>>> 56ad0ab65295730e6c12193f914a5814d240ab14
+
 
 ## 📷 تصاویر پروژه
 
