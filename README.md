@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 MovieNet
 
-## Getting Started
+یک وب‌اپلیکیشن جست‌وجو و مشاهده اطلاعات فیلم‌ها و سریال‌ها با استفاده از [TMDB API](https://www.themoviedb.org/documentation/api).  
+توسعه‌یافته با Next.js، React و TailwindCSS.
 
-First, run the development server:
+---
+
+## 🧠 ویژگی‌ها
+
+- جست‌وجوی فیلم، سریال و بازیگر
+- مشاهده اطلاعات کامل هر فیلم و سریال (امتیاز، ژانر، خلاصه داستان، تاریخ انتشار و ...)
+- طراحی واکنش‌گرا و زیبا با TailwindCSS
+- استفاده از روتینگ داینامیک در Next.js
+- بارگذاری داده‌ها به‌صورت Server-side Rendering برای سئوی بهتر
+- استفاده از `app router` جدید Next.js
+
+---
+
+## 🧰 تکنولوژی‌های استفاده شده
+
+- [Next.js 15](https://nextjs.org/)
+- [React 19](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TMDB API](https://www.themoviedb.org/documentation/api)
+
+---
+
+## 🖥️ پیش‌نمایش آنلاین
+
+می‌توانید پروژه را از این لینک مشاهده کنید:  
+🔗 [https://movienet-soufi.vercel.app/](https://movienet-soufi.vercel.app/)
+
+---
+
+## 🚀 اجرای پروژه به صورت محلی
 
 ```bash
+# کلون کردن مخزن
+git clone https://github.com/Mehran-soufi/movienet-nextjs.git
+
+# رفتن به پوشه پروژه
+cd movienet-nextjs
+
+# نصب وابستگی‌ها
+npm install
+
+# اجرای پروژه
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📷 تصاویر پروژه
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### نمای کلی سایت:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![fullScreen](/public/assets/screen_shot/fullScreen_project.png)
 
-## Learn More
+#### صفحه اصلی:
 
-To learn more about Next.js, take a look at the following resources:
+![hero](/public/assets/screen_shot/hero.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### جستجو در سایت:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![search](/public/assets/screen_shot/search.png)
 
-## Deploy on Vercel
+#### نمایش ارور:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![error](/public/assets/screen_shot/error.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### نمایش لودینگ:
+
+![loading](/public/assets/screen_shot/loading.png)
+
+#### اطلاعات بازیگران
+
+![loading](/public/assets/screen_shot/actor.png)
+
+#### اطلاعات تک فیلم یا سریال
+
+![loading](/public/assets/screen_shot/movie.png)
+
+## 👨‍💻 توسعه دهنده:
+[مهران صوفی](https://resume-soufi.vercel.app/)
