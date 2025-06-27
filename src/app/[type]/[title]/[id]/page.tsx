@@ -73,15 +73,16 @@ async function fetchMovieData(
   }
 }
 
-interface MoviePageProps {
+type Props = {
   params: {
     type: string;
+    title: string;
     id: string;
   };
-}
+};
 
-export default async function MoviePage({ params }: MoviePageProps) {
-  const { type, id } = params;
+export default async function MoviePage({ params }: Props) {
+  const { type, title, id } = params;
 
   const movieData = await fetchMovieData(id, type);
 
