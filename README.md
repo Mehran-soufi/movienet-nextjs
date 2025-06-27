@@ -1,6 +1,18 @@
 # 🎬 MovieNet
 
-# 🎯 رزومه آنلاین | Online Resume
+---
+
+### 🌟 توجه | Attention :
+
+**فارسی:**
+به دلیل مشکلات روی آی پی ایران ممکن است تصاویر در وب سایت بدون استفاده از وی پی ان در دسترس نباشد!
+</br>
+**ٌEnglish:**
+Due to problems with Iranian IPs, images on the website may not be available without using a VPN!
+
+---
+
+## 🎯 رزومه آنلاین | Online Resume
 
 **فارسی:**
 یک وب‌اپلیکیشن جست‌وجو و مشاهده اطلاعات فیلم‌ها و سریال‌ها با استفاده از TMDB API.
@@ -37,7 +49,7 @@ This project is an online resume (CV) that includes sections such as profile, wo
 
 ## 🔗 پیش‌نمایش آنلاین | Live Demo
 
-[https://resume-soufi.vercel.app/](https://resume-soufi.vercel.app/)  
+[https://movienet.vercel.app/](https://movienet.vercel.app/)  
 مشاهده رزومه آنلاین | View the online resume
 
 ---
@@ -92,7 +104,9 @@ http://localhost:3000
 ![loading](/public/assets/screen_shot/movie.png)
 
 ## 👨‍💻 توسعه دهنده:
+
 [مهران صوفی](https://resume-soufi.vercel.app/)
+
 ```
 >>>>>>> 56ad0ab65295730e6c12193f914a5814d240ab14
 
@@ -129,3 +143,4 @@ http://localhost:3000
 
 ## 👨‍💻 توسعه دهنده | Developer:
 [مهران صوفی |  Mehran soufi](https://resume-soufi.vercel.app/)
+```
