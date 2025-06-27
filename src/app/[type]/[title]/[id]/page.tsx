@@ -4,15 +4,18 @@ export type Genre = {
   id: number;
   name: string;
 };
+
 export type production_countrie = {
   iso_3166_1: string;
   name: string;
 };
+
 export type languages = {
   english_name: string;
   iso_639_1: string;
   name: string;
 };
+
 export type companie = {
   id: number;
   logo_path: string;
@@ -76,6 +79,7 @@ async function fetchMovieData(
 type Props = {
   params: {
     type: string;
+    title: string;
     id: string;
   };
 };
