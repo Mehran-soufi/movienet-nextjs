@@ -80,7 +80,7 @@ type Props = {
   };
 };
 
-export default async function MoviePage({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { type, id } = params;
 
   const movieData = await fetchMovieData(id, type);
