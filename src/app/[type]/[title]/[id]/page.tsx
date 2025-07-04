@@ -4,15 +4,18 @@ export type Genre = {
   id: number;
   name: string;
 };
+
 export type production_countrie = {
   iso_3166_1: string;
   name: string;
 };
+
 export type languages = {
   english_name: string;
   iso_639_1: string;
   name: string;
 };
+
 export type companie = {
   id: number;
   logo_path: string;
@@ -49,10 +52,7 @@ export type OneMovieData = {
   };
 };
 
-async function fetchMovieData(
-  id: string,
-  type: string
-): Promise<OneMovieData | null> {
+async function fetchMovieData(id: string, type: string): Promise<OneMovieData | null> {
   const apiKey = process.env.NEXT_PUBLIC_APP_API_KEY;
 
   try {
@@ -73,15 +73,11 @@ async function fetchMovieData(
   }
 }
 
-interface MoviePageProps {
-  params: {
-    type: string;
-    title: string;
-    id: string;
-  };
-}
-
-export default async function MoviePage({ params }: MoviePageProps) {
+export default async function Page({
+  params,
+}: {
+  params: { type: string; title: string; id: string };
+}) {
   const { type, id } = params;
 
   const movieData = await fetchMovieData(id, type);
