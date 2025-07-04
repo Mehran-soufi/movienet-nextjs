@@ -76,9 +76,9 @@ async function fetchMovieData(id: string, type: string): Promise<OneMovieData | 
 export default async function Page({
   params,
 }: {
-  params: { type: string; title: string; id: string };
+  params: Promise<{ type: string; title: string; id: string }>;
 }) {
-  const { type, id } = params;
+  const { type, id } = await params;
 
   const movieData = await fetchMovieData(id, type);
 
