@@ -29,17 +29,21 @@ const getApiLinkByTitle = (title: string, page: number): string | null => {
   }
 };
 
-export default async function MoviePage({
+export default async function SeriesPage({
   params,
   searchParams,
 }: {
-  params: { title: string };
-  searchParams: { page?: string };
+  params: Promise<{ title: string }>;
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const title = decodeURIComponent(params.title);
-  const page = Number(searchParams.page) || 1;
+  const { title } = await params;
+  const { page } = await searchParams;
 
-  const apiUrl = getApiLinkByTitle(title, page);
+  const decodedTitle = decodeURIComponent(title);
+  const pageNumber = Number(page) || 1;
+
+  const apiUrl = getApiLinkByTitle(decodedTitle, pageNumber);
+
   if (!apiUrl) {
     throw new Error("Internal Server Error");
   }
@@ -62,7 +66,7 @@ export default async function MoviePage({
               result={results}
               title={title}
               totalPages={totalPages}
-              currentPage={page}
+              currentPage={pageNumber}
             />
           </div>
         </div>
