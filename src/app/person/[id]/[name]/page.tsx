@@ -35,9 +35,10 @@ async function fetchPersonData(id: string): Promise<OnePersonType | null> {
 export default async function PersonPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
+
   const PersonData = await fetchPersonData(id);
 
   if (!PersonData) {
