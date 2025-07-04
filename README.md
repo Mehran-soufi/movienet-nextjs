@@ -49,7 +49,7 @@ This project is an online resume (CV) that includes sections such as profile, wo
 
 ## 🔗 پیش‌نمایش آنلاین | Live Demo
 
-[https://movienet.vercel.app/](https://movienet.vercel.app/)  
+[مشاهده رزومه آنلاین | View the online resume](https://movienet-nextjs-soufi.vercel.app/)  
 مشاهده رزومه آنلاین | View the online resume
 
 ---
