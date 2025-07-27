@@ -12,23 +12,12 @@ Due to problems with Iranian IPs, images on the website may not be available wit
 
 ---
 
-## 🎯 رزومه آنلاین | Online Resume
-
-**فارسی:**
-یک وب‌اپلیکیشن جست‌وجو و مشاهده اطلاعات فیلم‌ها و سریال‌ها با استفاده از TMDB API.
-توسعه‌یافته با Next.js، React و TailwindCSS.
-</br>
-**English:**  
-A web application for searching and viewing movie and TV show information using the TMDB API. Developed with Next.js, React, and TailwindCSS.
-
----
-
 ## 🧠 درباره پروژه | About This Project
 
 **فارسی:**  
-این پروژه حالت رزومه آنلاین (CV) داره و شامل بخش‌هایی مثل نمایه، تجربه‌کاری، مهارت‌ها، پروژه‌ها و تماس می‌شه.  
+یک وب سایت جامع اطلاعت هزاران فیلم و سریال و بازیگران با قابلیت جستجو در بین آنها
 **English:**  
-This project is an online resume (CV) that includes sections such as profile, work experience, skills, projects, and contact.
+A comprehensive website with information on thousands of movies, series, and actors, with the ability to search among them.
 
 ---
 
@@ -49,7 +38,7 @@ This project is an online resume (CV) that includes sections such as profile, wo
 
 ## 🔗 پیش‌نمایش آنلاین | Live Demo
 
-[مشاهده رزومه آنلاین | View the online resume](https://movienet-nextjs-soufi.vercel.app/)  
+[مشاهده | View](https://movienet-nextjs.vercel.app/)
 
 ---
 
@@ -105,5 +94,3 @@ http://localhost:3000
 ## 👨‍💻 توسعه دهنده:
 
 [مهران صوفی](https://resume-soufi.vercel.app/)
-
-
